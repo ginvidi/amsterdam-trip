@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amsterdam Explorer</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+
+<!-- ────────── HERO ────────── -->
+<header class="hero">
+  <div class="compass-wrap">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+      <g class="compass-outer">
+        <circle cx="40" cy="40" r="37" stroke="rgba(245,170,26,.4)" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <circle cx="40" cy="40" r="32" stroke="rgba(245,170,26,.2)" stroke-width="1"/>
+        <text x="40" y="11" text-anchor="middle" fill="#F5AA1A" font-size="8" font-family="Fredoka One,cursive">N</text>
+        <text x="40" y="74" text-anchor="middle" fill="#6890B8" font-size="7" font-family="Fredoka One,cursive">S</text>
+        <text x="9"  y="43" text-anchor="middle" fill="#6890B8" font-size="7" font-family="Fredoka One,cursive">O</text>
+        <text x="73" y="43" text-anchor="middle" fill="#6890B8" font-size="7" font-family="Fredoka One,cursive">E</text>
+      </g>
+      <g class="compass-needle">
+        <polygon points="40,14 43,40 40,46 37,40" fill="#E85C5C"/>
+        <polygon points="40,66 43,40 40,46 37,40" fill="#6890B8" opacity=".6"/>
+      </g>
+      <circle cx="40" cy="40" r="5" fill="#F5AA1A"/>
+      <circle cx="40" cy="40" r="2.5" fill="#07111F"/>
+    </svg>
+  </div>
+  <h1>🌷 Amsterdam Explorer</h1>
+  <p class="tagline">La grande avventura — fine settembre 2026</p>
+  <div class="star-bar" id="star-bar">
+    <span style="font-size:1.3rem">⭐</span>
+    Stelle conquistate: <span id="star-count">0</span> / <span id="star-max">1050</span>
+  </div>
+</header>
+
+<!-- ────────── MAP ────────── -->
+<section class="map-section">
+  <h2>🗺️ La Mappa dell'Avventura</h2>
+  <div class="map-wrap">
+    <svg viewBox="0 0 540 330" xmlns="http://www.w3.org/2000/svg">
+      <rect width="540" height="330" fill="#081628"/>
+      <!-- IJ River -->
+      <rect x="0" y="0" width="540" height="68" fill="#0C2844"/>
+      <path d="M0 68 C90 58,180 72,270 65 C360 58,450 72,540 65 L540 80 L0 80Z" fill="#081628"/>
+      <line x1="18"  y1="22" x2="75"  y2="22" stroke="#0FC5BD" stroke-width=".7" opacity=".25"/>
+      <line x1="110" y1="38" x2="190" y2="38" stroke="#0FC5BD" stroke-width=".7" opacity=".2"/>
+      <line x1="310" y1="28" x2="420" y2="28" stroke="#0FC5BD" stroke-width=".7" opacity=".25"/>
+      <line x1="445" y1="45" x2="520" y2="45" stroke="#0FC5BD" stroke-width=".7" opacity=".18"/>
+      <text x="55" y="42" fill="#0FC5BD" font-size="9.5" opacity=".55" font-family="Nunito,sans-serif" font-weight="600">Fiume IJ</text>
+      <!-- Station -->
+      <rect x="188" y="65" width="164" height="22" rx="3" fill="#0F2A50"/>
+      <rect x="188" y="65" width="164" height="4"  rx="2" fill="#0FC5BD" opacity=".4"/>
+      <text x="270" y="80" text-anchor="middle" fill="#6890B8" font-size="9" font-family="Nunito,sans-serif" font-weight="700">Centraal Station</text>
+      <!-- Land -->
+      <rect x="0" y="87" width="540" height="243" fill="#091627"/>
+      <!-- Canal arcs -->
+      <path d="M 200 87 Q 270 198 340 87" stroke="#0FC5BD" stroke-width="3.5" fill="none" opacity=".7"/>
+      <path d="M 175 87 Q 270 228 365 87" stroke="#0AA8A2" stroke-width="3"   fill="none" opacity=".58"/>
+      <path d="M 150 87 Q 270 255 390 87" stroke="#089490" stroke-width="2.5" fill="none" opacity=".46"/>
+      <path d="M 123 87 Q 270 279 417 87" stroke="#067F7B" stroke-width="2"   fill="none" opacity=".38"/>
+      <!-- Streets -->
+      <line x1="108" y1="128" x2="432" y2="128" stroke="#0F2040" stroke-width="1.2"/>
+      <line x1=" 95" y1="162" x2="445" y2="162" stroke="#0F2040" stroke-width="1.2"/>
+      <line x1=" 88" y1="196" x2="452" y2="196" stroke="#0F2040" stroke-width="1.2"/>
+      <!-- Buildings west (Jordaan) -->
+      <rect x="45" y="105" width="28" height="16" rx="2" fill="#112240"/>
+      <rect x="45" y="128" width="28" height="14" rx="2" fill="#112240"/>
+      <rect x="45" y="150" width="28" height="20" rx="2" fill="#112240"/>
+      <rect x="79" y="105" width="20" height="38" rx="2" fill="#112240"/>
+      <!-- Buildings east -->
+      <rect x="435" y="105" width="28" height="16" rx="2" fill="#112240"/>
+      <rect x="435" y="128" width="28" height="14" rx="2" fill="#112240"/>
+      <rect x="469" y="105" width="35" height="38" rx="2" fill="#112240"/>
+      <!-- Vondelpark -->
+      <ellipse cx="70" cy="258" rx="58" ry="36" fill="#0A2E18"/>
+      <ellipse cx="70" cy="258" rx="45" ry="26" fill="#0C3B1E" opacity=".8"/>
+      <circle cx="42" cy="244" r="7" fill="#144D26" opacity=".8"/>
+      <circle cx="60" cy="236" r="6" fill="#144D26" opacity=".7"/>
+      <circle cx="90" cy="238" r="7" fill="#144D26" opacity=".8"/>
+      <circle cx="75" cy="270" r="5" fill="#144D26" opacity=".6"/>
+      <text x="70" y="263" text-anchor="middle" fill="#0FBF88" font-size="8.5" font-family="Nunito,sans-serif" font-weight="700">Vondelpark</text>
+      <!-- A'DAM tower -->
+      <rect x="122" y="10" width="9" height="45" fill="#1E4A80" opacity=".9"/>
+      <rect x="118" y="10" width="17" height="6" rx="1" fill="#2A60A0"/>
+      <circle cx="127" cy="9" r="5" fill="#8B6FEF" opacity=".9"/>
+      <line x1="118" y1="18" x2="108" y2="28" stroke="#8B6FEF" stroke-width="1" opacity=".6"/>
+
+      <!-- MISSION PINS -->
+      <g class="mpin" data-mission="1">
+        <circle cx="105" cy="150" r="18" fill="#F5AA1A" opacity=".18"/>
+        <circle cx="105" cy="150" r="13" fill="#F5AA1A"/>
+        <text x="105" y="154.5" text-anchor="middle" fill="#1A0800" font-size="11" font-weight="bold" font-family="Fredoka One,cursive">1</text>
+        <text x="105" y="176" text-anchor="middle" fill="#F5AA1A" font-size="8.5" font-family="Nunito,sans-serif" font-weight="700">🌉 Arrivo</text>
+      </g>
+      <g class="mpin" data-mission="2">
+        <circle cx="45" cy="278" r="16" fill="#4EA8DE" opacity=".18"/>
+        <circle cx="45" cy="278" r="12" fill="none" stroke="#4EA8DE" stroke-width="2" stroke-dasharray="3 2.5"/>
+        <text x="45" y="282" text-anchor="middle" fill="#4EA8DE" font-size="11" font-weight="bold" font-family="Fredoka One,cursive">2</text>
+      </g>
+      <g class="mpin" data-mission="3">
+        <circle cx="148" cy="240" r="18" fill="#FF6FA5" opacity=".18"/>
+        <circle cx="148" cy="240" r="13" fill="none" stroke="#FF6FA5" stroke-width="2" stroke-dasharray="3 2.5"/>
+        <text x="148" y="244.5" text-anchor="middle" fill="#FF6FA5" font-size="12" font-weight="bold" font-family="Fredoka One,cursive">3</text>
+        <text x="148" y="266" text-anchor="middle" fill="#FF6FA5" font-size="8" font-family="Nunito,sans-serif" font-weight="700">🌻 Van Gogh</text>
+      </g>
+      <g class="mpin" data-mission="4">
+        <circle cx="60" cy="112" r="18" fill="#0FC5BD" opacity=".18"/>
+        <circle cx="60" cy="112" r="13" fill="#0FC5BD"/>
+        <text x="60" y="116.5" text-anchor="middle" fill="#001918" font-size="11" font-weight="bold" font-family="Fredoka One,cursive">4</text>
+        <text x="60" y="93" text-anchor="middle" fill="#0FC5BD" font-size="8" font-family="Nunito,sans-serif" font-weight="700">🗺️ Noordermarkt</text>
+      </g>
+      <g class="mpin" data-mission="5">
+        <circle cx="330" cy="198" r="18" fill="#FFD166" opacity=".18"/>
+        <circle cx="330" cy="198" r="13" fill="#FFD166"/>
+        <text x="330" y="202.5" text-anchor="middle" fill="#2A1A00" font-size="11" font-weight="bold" font-family="Fredoka One,cursive">5</text>
+        <text x="330" y="224" text-anchor="middle" fill="#FFD166" font-size="8" font-family="Nunito,sans-serif" font-weight="700">💎 Waterlooplein</text>
+      </g>
+      <g class="mpin" data-mission="6">
+        <circle cx="415" cy="57" r="18" fill="#E85C5C" opacity=".18"/>
+        <circle cx="415" cy="57" r="13" fill="#E85C5C"/>
+        <text x="415" y="61.5" text-anchor="middle" fill="#200000" font-size="11" font-weight="bold" font-family="Fredoka One,cursive">6</text>
+        <text x="415" y="83" text-anchor="middle" fill="#E85C5C" font-size="8" font-family="Nunito,sans-serif" font-weight="700">⚓ Marittimo</text>
+      </g>
+      <g class="mpin" data-mission="7">
+        <circle cx="258" cy="152" r="18" fill="#0FBF88" opacity=".18"/>
+        <circle cx="258" cy="152" r="13" fill="#0FBF88"/>
+        <text x="258" y="156.5" text-anchor="middle" fill="#002915" font-size="11" font-weight="bold" font-family="Fredoka One,cursive">7</text>
+        <text x="258" y="177" text-anchor="middle" fill="#0FBF88" font-size="8.5" font-family="Nunito,sans-serif" font-weight="700">🌅 Canali</text>
+      </g>
+      <g class="mpin" data-mission="8">
+        <circle cx="468" cy="178" r="18" fill="#8B6FEF" opacity=".18"/>
+        <circle cx="468" cy="178" r="13" fill="#8B6FEF"/>
+        <text x="468" y="182.5" text-anchor="middle" fill="#0D0020" font-size="11" font-weight="bold" font-family="Fredoka One,cursive">8</text>
+        <text x="468" y="206" text-anchor="middle" fill="#8B6FEF" font-size="8" font-family="Nunito,sans-serif" font-weight="700">🦁 Artis</text>
+      </g>
+
+      <!-- Legend -->
+      <rect x="12" y="304" width="10" height="10" rx="2" fill="#F5AA1A"/>
+      <text x="26" y="313" fill="#6890B8" font-size="8.5" font-family="Nunito,sans-serif">Venerdì</text>
+      <rect x="90" y="304" width="10" height="10" rx="2" fill="#0FC5BD"/>
+      <text x="104" y="313" fill="#6890B8" font-size="8.5" font-family="Nunito,sans-serif">Sabato</text>
+      <rect x="168" y="304" width="10" height="10" rx="2" fill="#8B6FEF"/>
+      <text x="182" y="313" fill="#6890B8" font-size="8.5" font-family="Nunito,sans-serif">Domenica</text>
+      <rect x="252" y="304" width="10" height="10" rx="2" fill="none" stroke="#FF6FA5" stroke-width="1.5" stroke-dasharray="2 1.5"/>
+      <text x="266" y="313" fill="#6890B8" font-size="8.5" font-family="Nunito,sans-serif">Facoltativa</text>
+      <!-- Mini compass -->
+      <circle cx="510" cy="308" r="16" fill="#0C1B32" stroke="#112240" stroke-width="1.5"/>
+      <text x="510" y="297" text-anchor="middle" fill="#F5AA1A" font-size="7" font-family="Fredoka One,cursive">N</text>
+      <text x="510" y="321" text-anchor="middle" fill="#6890B8" font-size="6.5" font-family="Fredoka One,cursive">S</text>
+      <text x="498" y="311" text-anchor="middle" fill="#6890B8" font-size="6.5" font-family="Fredoka One,cursive">O</text>
+      <text x="522" y="311" text-anchor="middle" fill="#6890B8" font-size="6.5" font-family="Fredoka One,cursive">E</text>
+      <polygon points="510,299 512,308 510,310 508,308" fill="#E85C5C"/>
+      <polygon points="510,317 512,308 510,310 508,308" fill="#6890B8" opacity=".5"/>
+    </svg>
+  </div>
+  <p class="map-hint">👆 Tocca i numeri sulla mappa per aprire le missioni!</p>
+</section>
+
+<!-- ────────── MISSIONS ────────── -->
+<section class="missions">
+  <h2>🎯 Le tue 8 Missioni (2 facoltative)</h2>
+  <div class="day-group-label d0">🌉 Venerdì sera — Il Grande Arrivo</div>
+  <div class="mission-grid" id="grid-d0">
+
+    <article class="mcard" data-mission="1" data-stars="80">
+      <h3 class="mcard-head-wrap">
+        <button class="mcard-head" type="button" id="mbtn-1" aria-expanded="false" aria-controls="mpanel-1">
+          <span class="mcard-icon" style="background:rgba(245,170,26,.14)" aria-hidden="true">🌉</span>
+          <span class="mcard-info">
+            <span class="mcard-title" style="color:#F5AA1A">Il Grande Arrivo</span>
+            <span class="mcard-stars">⭐ 80 stelle</span>
+          </span>
+          <span class="mcard-toggle" aria-hidden="true">▼</span>
+        </button>
+      </h3>
+      <div class="mcard-body" id="mpanel-1" role="region" aria-labelledby="mbtn-1" hidden>
+        <p class="mloc">📍 Canali del centro / Pancake Bakery · Jordaan</p>
+        <p class="mdesc">Siete appena atterrati! Prima tappa: cena con i pannenkoeken olandesi, poi la prima passeggiata lungo i canali illuminati.</p>
+        <div class="mgame">
+          <div class="mgame-head">
+            <strong id="game-title-1">🎮 Il tuo gioco — Caccia al Canale</strong>
+            <span class="game-progress" aria-live="polite">0/5</span>
+          </div>
+          <ul class="game-list" role="list" aria-labelledby="game-title-1">
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un'imbarcazione con le luci accese 🚢</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un ponte con le biciclette parcheggiate sopra 🚲</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Una casa galleggiante (woonboot) 🏠</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un riflesso nell'acqua che sembra un dipinto 🎨</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un gatto in una finestra 🐱 (bonus raro!)</span></label></li>
+          </ul>
+        </div>
+        <button class="mbtn pending" type="button">🏆 Completa la Missione!</button>
+      </div>
+    </article>
+
+  </div>
+  <div class="day-group-label d1">🚲 Sabato — Jordaan, Arte &amp; Mare</div>
+  <div class="mission-grid" id="grid-d1">
+
+    <article class="mcard optional" data-mission="2" data-stars="90">
+      <h3 class="mcard-head-wrap">
+        <button class="mcard-head" type="button" id="mbtn-2" aria-expanded="false" aria-controls="mpanel-2">
+          <span class="mcard-icon" style="background:rgba(78,168,222,.14)" aria-hidden="true">🦆</span>
+          <span class="mcard-info">
+            <span class="mcard-title" style="color:#4EA8DE">Il Cacciatore di Animali Selvatici</span>
+            <span class="mcard-stars">⭐ 90 stelle</span>
+            <span class="mcard-optional-badge">🌟 Facoltativa</span>
+          </span>
+          <span class="mcard-toggle" aria-hidden="true">▼</span>
+        </button>
+      </h3>
+      <div class="mcard-body" id="mpanel-2" role="region" aria-labelledby="mbtn-2" hidden>
+        <p class="mloc">📍 Vondelpark · accanto al Museumplein</p>
+        <p class="mdesc">Missione facoltativa: il Vondelpark è il parco più bello di Amsterdam, proprio accanto al museo — cigni, scoiattoli, anatre e pappagalli verdi selvatici vivono qui in libertà!</p>
+        <div class="mgame">
+          <div class="mgame-head">
+            <strong id="game-title-2">🎮 Il tuo gioco — Caccia agli Animali Selvatici</strong>
+            <span class="game-progress" aria-live="polite">0/5</span>
+          </div>
+          <ul class="game-list" role="list" aria-labelledby="game-title-2">
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un'anatra che nuota in fila con i suoi piccoli 🦆</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Uno scoiattolo che si arrampica su un albero 🐿️</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un cigno bianco 🦢</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un pappagallo verde selvatico (sì, ad Amsterdam ce ne sono davvero!) 🦜</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un cane che gioca a palla 🐕</span></label></li>
+          </ul>
+        </div>
+        <p class="mbonus">✨ Bonus: disegna il tuo animale preferito del parco sul taccuino delle avventure!</p>
+        <button class="mbtn pending" type="button">🏆 Completa la Missione!</button>
+      </div>
+    </article>
+
+    <article class="mcard optional" data-mission="3" data-stars="120">
+      <h3 class="mcard-head-wrap">
+        <button class="mcard-head" type="button" id="mbtn-3" aria-expanded="false" aria-controls="mpanel-3">
+          <span class="mcard-icon" style="background:rgba(255,111,165,.14)" aria-hidden="true">🌻</span>
+          <span class="mcard-info">
+            <span class="mcard-title" style="color:#FF6FA5">Il Pittore Misterioso</span>
+            <span class="mcard-stars">⭐ 120 stelle</span>
+            <span class="mcard-optional-badge">🌟 Facoltativa</span>
+          </span>
+          <span class="mcard-toggle" aria-hidden="true">▼</span>
+        </button>
+      </h3>
+      <div class="mcard-body" id="mpanel-3" role="region" aria-labelledby="mbtn-3" hidden>
+        <p class="mloc">📍 Van Gogh Museum · Museumplein 6</p>
+        <p class="mdesc">Missione facoltativa: Van Gogh era un artista che dipingeva con colori esplosivi e pennellate vorticose come onde! Se la saltate, andate direttamente al Jordaan.</p>
+        <div class="mgame">
+          <div class="mgame-head">
+            <strong id="game-title-3">🎮 Il tuo gioco — Trova il Quadro</strong>
+            <span class="game-progress" aria-live="polite">0/5</span>
+          </div>
+          <ul class="game-list" role="list" aria-labelledby="game-title-3">
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un quadro con i girasoli 🌻</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Il quadro con il cielo più agitato di tutti 🌌</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un autoritratto — Van Gogh si dipingeva spesso! 🖼️</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Il quadro in cui usi meno di 3 colori 🎨</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Qualcosa che Van Gogh ha dipinto e che si trova anche ad Amsterdam 🏙️</span></label></li>
+          </ul>
+        </div>
+        <p class="mbonus">✨ Sfida bonus: disegna il tuo preferito su un foglio prima di uscire!</p>
+        <button class="mbtn pending" type="button">🏆 Completa la Missione!</button>
+      </div>
+    </article>
+
+    <article class="mcard" data-mission="4" data-stars="100">
+      <h3 class="mcard-head-wrap">
+        <button class="mcard-head" type="button" id="mbtn-4" aria-expanded="false" aria-controls="mpanel-4">
+          <span class="mcard-icon" style="background:rgba(15,197,189,.14)" aria-hidden="true">🗺️</span>
+          <span class="mcard-info">
+            <span class="mcard-title" style="color:#0FC5BD">Il Mercato dei Segreti</span>
+            <span class="mcard-stars">⭐ 100 stelle</span>
+          </span>
+          <span class="mcard-toggle" aria-hidden="true">▼</span>
+        </button>
+      </h3>
+      <div class="mcard-body" id="mpanel-4" role="region" aria-labelledby="mbtn-4" hidden>
+        <p class="mloc">📍 Jordaan / Noordermarkt</p>
+        <p class="mdesc">Il Jordaan è il quartiere più antico e misterioso di Amsterdam — cortili nascosti, mercati, ponti minuscoli. Gli hofjes sono cortili segreti dentro i palazzi: cerca le porte con targhe antiche e sbircia dentro, sembrano giardini magici! Ci si ferma qui anche per pranzo.</p>
+        <div class="mgame">
+          <div class="mgame-head">
+            <strong id="game-title-4">🎮 Il tuo gioco — Cacciatore di Hofjes e Mercato</strong>
+            <span class="game-progress" aria-live="polite">0/5</span>
+          </div>
+          <ul class="game-list" role="list" aria-labelledby="game-title-4">
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Qualcosa di rosso commestibile 🍓</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un oggetto più vecchio di nonno 🕰️</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Qualcuno che mangia qualcosa che non conosci 🤔</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Una bicicletta con UN oggetto strano nel cestino 🚲</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Il formaggio più grande che riesci a trovare 🧀</span></label></li>
+          </ul>
+        </div>
+        <button class="mbtn pending" type="button">🏆 Completa la Missione!</button>
+      </div>
+    </article>
+
+    <article class="mcard" data-mission="5" data-stars="150">
+      <h3 class="mcard-head-wrap">
+        <button class="mcard-head" type="button" id="mbtn-5" aria-expanded="false" aria-controls="mpanel-5">
+          <span class="mcard-icon" style="background:rgba(255,209,102,.14)" aria-hidden="true">💎</span>
+          <span class="mcard-info">
+            <span class="mcard-title" style="color:#FFD166">Il Tesoro del Mercato</span>
+            <span class="mcard-stars">⭐ 150 stelle</span>
+          </span>
+          <span class="mcard-toggle" aria-hidden="true">▼</span>
+        </button>
+      </h3>
+      <div class="mcard-body" id="mpanel-5" role="region" aria-labelledby="mbtn-5" hidden>
+        <p class="mloc">📍 Mercatino Waterlooplein</p>
+        <p class="mdesc">Waterlooplein è il mercato delle pulci più famoso di Amsterdam — ci trovi di tutto, dal 1886! Apre da lunedì a sabato, quindi lo visitiamo oggi.</p>
+        <div class="mgame">
+          <div class="mgame-head">
+            <strong id="game-title-5">🎮 Il tuo gioco — Caccia al Tesoro Finale</strong>
+            <span class="game-progress" aria-live="polite">0/5</span>
+          </div>
+          <ul class="game-list" role="list" aria-labelledby="game-title-5">
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">L'oggetto più strano del mercato 🤪</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Qualcosa che potrebbe essere un travestimento perfetto 🎭</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un oggetto che costi meno di 1 euro 💶</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Qualcosa di arancione — il colore nazionale olandese! 🟠</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un oggetto che pensi abbia più di 50 anni 🕰️</span></label></li>
+          </ul>
+        </div>
+        <p class="mbonus">✨ Sfida: con 5 euro, compra il souvenir più originale che riesci a trovare!</p>
+        <button class="mbtn pending" type="button">🏆 Completa la Missione!</button>
+      </div>
+    </article>
+
+    <article class="mcard" data-mission="6" data-stars="150">
+      <h3 class="mcard-head-wrap">
+        <button class="mcard-head" type="button" id="mbtn-6" aria-expanded="false" aria-controls="mpanel-6">
+          <span class="mcard-icon" style="background:rgba(232,92,92,.14)" aria-hidden="true">⚓</span>
+          <span class="mcard-info">
+            <span class="mcard-title" style="color:#E85C5C">La Nave dei Pirati Olandesi</span>
+            <span class="mcard-stars">⭐ 150 stelle</span>
+          </span>
+          <span class="mcard-toggle" aria-hidden="true">▼</span>
+        </button>
+      </h3>
+      <div class="mcard-body" id="mpanel-6" role="region" aria-labelledby="mbtn-6" hidden>
+        <p class="mloc">📍 Museo Marittimo (Het Scheepvaartmuseum) · Kattenburgerplein 1</p>
+        <p class="mdesc">C'è una vera nave del 1700 ormeggiata fuori dal museo — la VOC Amsterdam, uguale a quelle che i marinai olandesi usavano per circumnavigare il mondo!</p>
+        <div class="mgame">
+          <div class="mgame-head">
+            <strong id="game-title-6">🎮 Il tuo gioco — Esplorazione della Nave</strong>
+            <span class="game-progress" aria-live="polite">0/5</span>
+          </div>
+          <ul class="game-list" role="list" aria-labelledby="game-title-6">
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Il timone (dove stava il capitano) 🎡</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">I cannoni — contali tutti! 💣</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">La corda più spessa che hai mai visto 🪢</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un posto dove dormivano i marinai (era scomodo?) 🛏️</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">La bussola o il sestante per navigare 🧭</span></label></li>
+          </ul>
+        </div>
+        <p class="mbonus">✨ Sfida: stai fermo sul ponte con gli occhi chiusi e senti il vento — immagina di essere in mezzo all'oceano. Cosa sentiresti?</p>
+        <button class="mbtn pending" type="button">🏆 Completa la Missione!</button>
+      </div>
+    </article>
+
+    <article class="mcard" data-mission="7" data-stars="200">
+      <h3 class="mcard-head-wrap">
+        <button class="mcard-head" type="button" id="mbtn-7" aria-expanded="false" aria-controls="mpanel-7">
+          <span class="mcard-icon" style="background:rgba(15,191,136,.14)" aria-hidden="true">🌅</span>
+          <span class="mcard-info">
+            <span class="mcard-title" style="color:#0FBF88">I Canali al Tramonto</span>
+            <span class="mcard-stars">⭐ 200 stelle</span>
+          </span>
+          <span class="mcard-toggle" aria-hidden="true">▼</span>
+        </button>
+      </h3>
+      <div class="mcard-body" id="mpanel-7" role="region" aria-labelledby="mbtn-7" hidden>
+        <p class="mloc">📍 Giro in barca sui canali · partenza ~18:00</p>
+        <p class="mdesc">Amsterdam ha 1.281 ponti — più di Venezia! Dal canale la città sembra completamente diversa.</p>
+        <div class="mgame">
+          <div class="mgame-head">
+            <strong id="game-title-7">🎮 Il tuo gioco — Record di Bordo</strong>
+            <span class="game-progress" aria-live="polite">0/5</span>
+          </div>
+          <ul class="game-list" role="list" aria-labelledby="game-title-7">
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Ponti attraversati: conta ogni volta che passate sotto! 🌉</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Case storte trovate (si inclinano di proposito!) 🏚️</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Biciclette sommerse nell'acqua visibili dal canale 🚲</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">La casa più stretta che riesci a individuare 🏠</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Uccelli diversi avvistati sull'acqua 🦆</span></label></li>
+          </ul>
+        </div>
+        <p class="mbonus">✨ Sfida bonus: trova il punto esatto da cui la città sembra più bella e scatta una foto lì.</p>
+        <button class="mbtn pending" type="button">🏆 Completa la Missione!</button>
+      </div>
+    </article>
+
+  </div>
+  <div class="day-group-label d2">🦁 Domenica — Animali &amp; Tesori</div>
+  <div class="mission-grid" id="grid-d2">
+
+    <article class="mcard" data-mission="8" data-stars="250">
+      <h3 class="mcard-head-wrap">
+        <button class="mcard-head" type="button" id="mbtn-8" aria-expanded="false" aria-controls="mpanel-8">
+          <span class="mcard-icon" style="background:rgba(139,111,239,.14)" aria-hidden="true">🦁</span>
+          <span class="mcard-info">
+            <span class="mcard-title" style="color:#8B6FEF">Il Guardiano degli Animali</span>
+            <span class="mcard-stars">⭐ 250 stelle</span>
+          </span>
+          <span class="mcard-toggle" aria-hidden="true">▼</span>
+        </button>
+      </h3>
+      <div class="mcard-body" id="mpanel-8" role="region" aria-labelledby="mbtn-8" hidden>
+        <p class="mloc">📍 Artis Zoo + Acquario · Plantage Kerklaan 38-40</p>
+        <p class="mdesc">L'Artis è uno dei zoo più antichi d'Europa (1838!) — gli animali vivono in uno zoo che sembra un parco storico magico.</p>
+        <div class="mgame">
+          <div class="mgame-head">
+            <strong id="game-title-8">🎮 Il tuo gioco — Bingo degli Animali</strong>
+            <span class="game-progress" aria-live="polite">0/7</span>
+          </div>
+          <ul class="game-list" role="list" aria-labelledby="game-title-8">
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un animale che dorme mentre lo guardi 😴</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un animale più grande di papà/mamma 🐘</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un animale che riesce a nuotare E camminare 🦫</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un animale con occhi di un colore che non ti aspettavi 👀</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Un animale che fa un suono strano o divertente 🔊</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Nell'acquario: un pesce mimetizzato 🐠</span></label></li>
+            <li class="game-item"><label><input type="checkbox" class="game-check"> <span class="game-text">Nell'acquario: qualcosa che brilla nel buio ✨</span></label></li>
+          </ul>
+        </div>
+        <p class="mbonus">✨ Sfida finale: scegli l'animale preferito della giornata e inventa 3 cose che potrebbe fare se vivesse ad Amsterdam!</p>
+        <button class="mbtn pending" type="button">🏆 Completa la Missione!</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ────────── ITINERARY ────────── -->
+<section class="itinerary">
+  <h2>📅 Programma Giorno per Giorno</h2>
+
+  <div class="day-block">
+    <div class="day-heading d0">🌉 Venerdì sera — Il Grande Arrivo</div>
+    <div class="timeline">
+      <div class="ti"><div class="ti-time">18:30</div><div>
+        <div class="ti-name">🛬 Atterraggio e check-in in hotel</div>
+        <div class="ti-desc">Si parte! Lasciate le valigie e uscite subito a scoprire i canali illuminati.</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">19:30</div><div>
+        <div class="ti-name">🥞 Cena al Pancake Bakery</div>
+        <div class="ti-desc">Prima cena in Olanda: i pannenkoeken, giganteschi pancake olandesi salati o dolci, nel cuore del Jordaan.</div>
+        <div class="ti-tip">💡 Prinsengracht 191 · Prenotare consigliato la sera</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">21:00</div><div>
+        <div class="ti-name">🌉 Missione 1 — Il Grande Arrivo</div>
+        <div class="ti-desc">Prima passeggiata serale lungo i canali del centro: barche illuminate, ponti e riflessi nell'acqua.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-heading d1">🚲 Sabato — Jordaan, Arte &amp; Mare</div>
+    <div class="timeline">
+      <div class="ti"><div class="ti-time">8:30</div><div>
+        <div class="ti-name">🍫 Hagelslag a colazione</div>
+        <div class="ti-desc">La tradizione olandese più amata dai bambini: sprinkles di cioccolato sul pane imburrato!</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">9:30</div><div>
+        <div class="ti-name">🦆 Missione 2 (facoltativa) — Vondelpark</div>
+        <div class="ti-desc">Prima passeggiata mattutina nel parco più bello di Amsterdam: cigni, scoiattoli e pappagalli verdi selvatici.</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">10:30</div><div>
+        <div class="ti-name">🌻 Missione 3 (facoltativa) — Van Gogh Museum</div>
+        <div class="ti-desc">A due passi dal parco: girasoli, cieli vorticosi e autoritratti. Se saltate queste due tappe, partite direttamente per il Jordaan.</div>
+        <div class="ti-tip">💡 Museumplein 6 · Ingresso gratis sotto i 18 anni · Prenotare online, orario fisso</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">12:15</div><div>
+        <div class="ti-name">🗺️ Missione 4 — Jordaan &amp; Noordermarkt</div>
+        <div class="ti-desc">Cortili segreti (hofjes), ponticelli e mercato: il quartiere più antico e misterioso di Amsterdam. Pranzo in zona (o poco prima, prendendo qualcosa al volo).</div>
+        <div class="ti-tip">💡 Il Noordermarkt il sabato è mercato bio e delle pulci · Prova i bitterballen come pranzo veloce</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">14:30</div><div>
+        <div class="ti-name">💎 Missione 5 — Mercatino di Waterlooplein</div>
+        <div class="ti-desc">Il mercato delle pulci più famoso di Amsterdam, dal 1886: caccia al tesoro finale con 5 euro da spendere!</div>
+        <div class="ti-tip">💡 Chiuso la domenica — per questo lo visitiamo di sabato</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">16:00</div><div>
+        <div class="ti-name">⚓ Missione 6 — Museo Marittimo</div>
+        <div class="ti-desc">A bordo della VOC Amsterdam, replica di una nave del '700 ormeggiata fuori dal museo.</div>
+        <div class="ti-tip">💡 Het Scheepvaartmuseum · Kattenburgerplein 1</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">18:00</div><div>
+        <div class="ti-name">🌅 Missione 7 — I Canali al Tramonto</div>
+        <div class="ti-desc">Giro in barca sui canali con la luce della sera: la città sembra completamente diversa dall'acqua.</div>
+        <div class="ti-tip">💡 Blue Boat Company o Canal Bus · Partenza vicino alla Stazione Centrale</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">19:30</div><div>
+        <div class="ti-name">🍽️ Cena in centro</div>
+        <div class="ti-desc">Dopo una giornata piena, una cena tranquilla per festeggiare le stelle guadagnate.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-heading d2">🦁 Domenica — Animali &amp; Arrivederci</div>
+    <div class="timeline">
+      <div class="ti"><div class="ti-time">9:30</div><div>
+        <div class="ti-name">🦁 Missione 8 — Artis Zoo + Acquario</div>
+        <div class="ti-desc">Uno dei zoo più antichi d'Europa (dal 1838!), con un grande acquario da esplorare.</div>
+        <div class="ti-tip">💡 Plantage Kerklaan 38-40 · Prenotare online, si esaurisce</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">13:00</div><div>
+        <div class="ti-name">🥪 Pranzo nel Plantagebuurt</div>
+        <div class="ti-desc">Il quartiere attorno all'Artis è pieno di caffè rilassanti, perfetti per un pranzo tranquillo prima della partenza.</div>
+      </div></div>
+      <div class="ti"><div class="ti-time">15:00</div><div>
+        <div class="ti-name">🍦 Gelato e arrivederci Amsterdam!</div>
+        <div class="ti-desc">Un gelato sul canale per festeggiare tutte le stelle conquistate. Missione completata, esploratore! 🌷</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────── TIPS ────────── -->
+<section class="tips">
+  <h2>💡 Consigli per il Viaggio</h2>
+  <div class="tips-grid">
+    <div class="tip"><div class="tip-ico">🚲</div><div class="tip-title">Attenzione alle bici!</div><div class="tip-text">Amsterdam ha corsie ciclabili dappertutto con ciclisti velocissimi. Tieni sempre la mano di tuo figlio sul marciapiede.</div></div>
+    <div class="tip"><div class="tip-ico">🎫</div><div class="tip-title">Prenota online in anticipo</div><div class="tip-text">Van Gogh Museum, Museo Marittimo e Artis si esauriscono. Prenota i biglietti qualche giorno prima per evitare code.</div></div>
+    <div class="tip"><div class="tip-ico">🌂</div><div class="tip-title">Settembre = vento e pioggia</div><div class="tip-text">L'Olanda a fine settembre è fresca (12-18°C). Porta un impermeabile e scarpe impermeabili.</div></div>
+    <div class="tip"><div class="tip-ico">🚌</div><div class="tip-title">App GVB per i trasporti</div><div class="tip-text">Scarica l'app GVB Amsterdam. Bambini sotto 4 anni viaggiano gratis, 4-11 anni tariffa ridotta.</div></div>
+    <div class="tip"><div class="tip-ico">🥐</div><div class="tip-title">Cibo da provare con i bimbi</div><div class="tip-text">Stroopwafel, hagelslag, bitterballen, patatine fritte con maionese, mini pannekoeken.</div></div>
+    <div class="tip"><div class="tip-ico">📓</div><div class="tip-title">Taccuino delle avventure</div><div class="tip-text">Un quadernino dove tuo figlio disegna animali e raccoglie biglietti. Diventa il diario dell'esploratore!</div></div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-title">Buon viaggio, Esploratore! 🌷</span>
+  Amsterdam vi aspetta — raccogliete tutte le stelle e create ricordi che durano per sempre.
+</footer>
+
+<!-- ────────── JS ────────── -->
+<script src="script/main.js"></script>
+
+</body>
+</html>

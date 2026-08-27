@@ -1,0 +1,62 @@
+@use 'mixins' as *;
+
+/* ── TOOLBAR PROGRESSI (reset / backup / tema) ──────────────── */
+.toolbar {
+  max-width: 920px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.toolbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+}
+
+.toolbar-btn {
+  @include solid-button;
+  width: auto;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: filter 0.18s, border-color 0.18s;
+
+  &:hover { filter: brightness(1.12); }
+  &:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+}
+
+.toolbar-btn.danger {
+  color: var(--coral);
+  border-color: rgba(232, 92, 92, 0.4);
+}
+
+.theme-toggle {
+  margin-left: auto;
+}
+
+@media (max-width: 560px) {
+  .theme-toggle { margin-left: 0; }
+}
+
+.toolbar-status {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-top: 0.2rem;
+
+  &:empty { display: none; }
+  &.warn { color: var(--coral); }
+}

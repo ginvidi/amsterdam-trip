@@ -1,0 +1,29 @@
+/* ── SASS HELPERS ───────────────────────────────────────────────
+   Font stack e utilità condivise tra i partial. */
+
+$font-body:    'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+$font-display: 'Fredoka', 'Fredoka One', 'Nunito', system-ui, sans-serif;
+
+// Colore accento per giorno: usato da missioni e itinerario con un @each.
+$day-colors: (
+  'd0': var(--gold),
+  'd1': var(--teal),
+  'd2': var(--purple),
+);
+
+// Riquadro colorato (gioco / sfida) con barra laterale.
+@mixin side-panel($accent) {
+  background: var(--surface2);
+  border-left: 3px solid $accent;
+  border-radius: 0.6rem;
+}
+
+// Pulsante pieno stile "azione".
+@mixin solid-button {
+  width: 100%;
+  border: none;
+  border-radius: 0.75rem;
+  font-family: $font-body;
+  font-weight: 800;
+  cursor: pointer;
+}

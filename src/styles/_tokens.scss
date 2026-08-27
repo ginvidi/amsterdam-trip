@@ -1,0 +1,47 @@
+/* ── DESIGN TOKENS ──────────────────────────────────────────────
+   I colori vivono qui come custom properties: JS legge gli stessi
+   hex dal JSON (pin della mappa), quindi tienili allineati. */
+:root {
+  --bg:       #07111F;
+  --surface:  #0C1B32;
+  --surface2: #112240;
+  --border:   rgba(100, 160, 255, 0.13);
+  --text:     #D0E0FF;
+  --dim:      #6890B8;
+  --gold:     #F5AA1A;
+  --teal:     #0FC5BD;
+  --coral:    #E85C5C;
+  --green:    #0FBF88;
+  --purple:   #8B6FEF;
+  --star:     #FFD166;
+  --pink:     #FF6FA5;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg:       #ECF2FC;
+    --surface:  #FFFFFF;
+    --surface2: #F2F7FF;
+    --border:   rgba(20, 60, 160, 0.10);
+    --text:     #0B1C38;
+    --dim:      #5070A0;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #07111F;
+  --surface: #0C1B32;
+  --surface2: #112240;
+  --border: rgba(100, 160, 255, 0.13);
+  --text: #D0E0FF;
+  --dim: #6890B8;
+}
+
+:root[data-theme="light"] {
+  --bg: #ECF2FC;
+  --surface: #FFFFFF;
+  --surface2: #F2F7FF;
+  --border: rgba(20, 60, 160, 0.10);
+  --text: #0B1C38;
+  --dim: #5070A0;
+}

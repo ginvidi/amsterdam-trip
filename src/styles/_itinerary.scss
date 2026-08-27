@@ -1,0 +1,80 @@
+@use 'mixins' as *;
+
+/* ── ITINERARY ──────────────────────────────────────────────── */
+.itinerary {
+  padding: 2rem 1.5rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.day-block { margin-bottom: 2.5rem; }
+
+.day-heading {
+  font-family: $font-display;
+  font-size: 1.25rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: 2rem;
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  /* Il colore/sfondo per .dN è generato dal @each in _missions.scss */
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.8rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+}
+
+.ti {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding: 0.7rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.74rem;
+    top: 1.05rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--bg);
+  }
+}
+
+.ti-time {
+  font-family: $font-display;
+  font-size: 0.88rem;
+  color: var(--gold);
+  min-width: 46px;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.1rem;
+}
+
+.ti-name {
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.ti-desc {
+  font-size: 0.82rem;
+  color: var(--dim);
+  margin-top: 0.2rem;
+}
+
+.ti-tip {
+  font-size: 0.78rem;
+  color: var(--green);
+  margin-top: 0.2rem;
+}

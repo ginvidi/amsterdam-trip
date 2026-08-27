@@ -1,94 +1,121 @@
-# 🧭 Amsterdam Explorer — Mappa Avventura
+# 🧭 Amsterdam Explorer
 
-Un'avventura interattiva per esplorare Amsterdam in 2 giorni, pensata per i piccoli avventurieri!
+Avventura interattiva per piccoli esploratori: 8 missioni ad Amsterdam, sistema di
+stelle, mappa disegnata a mano, itinerario e consigli di viaggio.
 
-## Come aprire il progetto
-
-### Metodo 1 — Apri direttamente nel browser (più semplice)
-
-1. Apri la cartella `amsterdam-explorer-local`
-2. Fai doppio clic su `index.html`
-3. Si aprirà nel tuo browser predefinito
-
-> **Nota:** Per caricare i font Google (Fredoka One e Nunito) serve una connessione internet.
-> Senza internet il sito funziona comunque, ma con font di sistema standard.
+È una **web-app installabile** (PWA): si apre dal telefono come un'app normale,
+**funziona senza internet** e **i progressi restano salvati** sul dispositivo.
 
 ---
 
-### Metodo 2 — Server locale (consigliato per sviluppo)
+## 📱 Per il bambino — installare l'app sul telefono / tablet
 
-Se hai Python installato (macOS e Linux ce l'hanno di default):
+1. Con una connessione internet, apri l'indirizzo del sito (quello di GitHub Pages —
+   vedi sotto) nel browser.
+2. Installa l'app sulla schermata Home:
+   - **iPhone / iPad (Safari):** pulsante *Condividi* → **Aggiungi a Home**.
+   - **Android (Chrome):** menù **⋮** → **Installa app** / **Aggiungi a schermata Home**.
+3. Da adesso l'icona 🌷 è nella Home. L'app si apre a schermo intero **anche in aereo /
+   senza rete**.
+
+### I progressi si salvano da soli
+
+Stelle, caselle spuntate e missioni completate vengono salvati sul dispositivo
+(`localStorage`) e si ritrovano ad ogni riapertura, anche dopo un refresh.
+
+### Backup (consigliato prima di un viaggio)
+
+Il salvataggio automatico **non** sopravvive a: "Cancella dati sito", navigazione
+in incognito, cambio di dispositivo, o (su iPhone) diverse settimane di inutilizzo.
+Per sicurezza, nella barra **"I miei progressi"** in cima alla pagina:
+
+- **💾 Salva i miei progressi** → scarica un file `amsterdam-explorer-backup.json`.
+- **📂 Carica progressi** → ricarica quel file su qualsiasi dispositivo.
+- **🔄 Ricomincia da capo** → azzera tutto (con conferma).
+- **🌗 Tema** → auto / chiaro / scuro (anche questo viene ricordato).
+
+---
+
+## 👩‍💻 Sviluppo
+
+Serve **Node.js 20+** (consigliato via [nvm](https://github.com/nvm-sh/nvm):
+`nvm install --lts`).
 
 ```bash
-cd amsterdam-explorer-local
-python3 -m http.server 8000
+npm install        # una volta
+npm run dev        # server di sviluppo con hot reload → http://localhost:5173
+npm run build      # build di produzione in dist/
+npm run preview    # anteprima della build di produzione
 ```
 
-Poi apri il browser su: **http://localhost:8000**
+### Struttura
 
-Per Windows con Python:
-```bash
-cd amsterdam-explorer-local
-python -m http.server 8000
 ```
+index.html                 shell minima: header/main/footer vuoti + <script type=module>
+vite.config.js             base path + configurazione PWA (manifest, precache, icone)
+public/icon.svg            sorgente unica da cui vengono generate tutte le icone PWA
+src/
+  main.js                  entry: carica contenuti → render → comportamento → ripristino stato
+  content/it.json          TUTTI i testi (missioni, mappa, itinerario, consigli…)
+  i18n.js                  scelta lingua e caricamento del JSON (?lang= per forzare)
+  storage.js               wrapper localStorage (try/catch, chiave versionata, debounce)
+  state.js                 modello dei progressi + load/save/reset/export
+  progress.js              barra "I miei progressi": tema, reset, backup export/import
+  missions-behavior.js     accordion, checklist con soglia 50%, completa/annulla, ripristino
+  render/                   hero, map, missions, itinerary, tips, footer (da JSON → DOM)
+  styles/                   SCSS: main.scss + partial (_tokens, _base, _missions, …)
+.github/workflows/deploy.yml  build e deploy automatici su GitHub Pages
+```
+
+### Cambiare i contenuti
+
+Tutto il testo è in **[`src/content/it.json`](src/content/it.json)**. Modifica lì:
+missioni, giochi, itinerario, consigli, etichette. Nessun ritocco a HTML/JS.
+
+### Aggiungere una lingua
+
+1. Copia `src/content/it.json` in `src/content/en.json` e traduci i valori.
+2. In `src/i18n.js` aggiungi `en: () => import('./content/en.json')`.
+3. Aprendo la pagina con `?lang=en` verrà usato il nuovo file.
+
+### Colori / stile
+
+Token colore in [`src/styles/_tokens.scss`](src/styles/_tokens.scss) (custom
+properties, con tema chiaro/scuro). Gli hex dei pin mappa nel JSON vanno tenuti
+allineati a questi token.
 
 ---
 
-### Metodo 3 — Con Node.js
+## 🌍 Hosting gratuito — GitHub Pages
 
-Se hai Node.js installato:
+Il workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) fa build e
+deploy ad ogni push su `main`.
 
-```bash
-npx serve amsterdam-explorer-local
-```
+1. Crea un repository su GitHub e fai `git push`.
+2. Repo → **Settings → Pages → Source = GitHub Actions**.
+3. Al primo push l'Action pubblica il sito su
+   `https://<utente>.github.io/<nome-repo>/`.
 
----
+Il `base` path viene impostato in automatico dall'Action al nome del repo. Se usi un
+repo `<utente>.github.io` o un dominio personalizzato, imposta la variabile
+`VITE_BASE=/` nel workflow.
 
-## Struttura del progetto
+### Alternative equivalenti (tutte gratis, con HTTPS)
 
-```
-amsterdam-explorer-local/
-└── index.html      ← tutta l'app in un unico file (HTML + CSS + JS inline)
-└── README.md       ← questo file
-```
-
-Il progetto è volutamente **single-file**: non ci sono dipendenze da installare,
-nessun `npm install`, nessun build step. Basta un browser.
-
----
-
-## Funzionalità
-
-- 🗺️ **Mappa interattiva** di Amsterdam con 6 missioni cliccabili
-- 📋 **Missioni** divise per Giorno 1 e Giorno 2
-- ⭐ **Sistema di stelle** — completa ogni missione per guadagnare stelle
-- 🌙 **Tema chiaro/scuro** — segue le preferenze del sistema
-- 📱 **Responsive** — funziona su tablet e smartphone
-
-## Le 6 missioni
-
-| Missione | Luogo | Stelle |
-|----------|-------|--------|
-| 1 — Il Richiamo della Foresta | Vondelpark | 100 ⭐ |
-| 2 — Laboratorio del Futuro | NEMO Science Museum | 200 ⭐ |
-| 3 — Il Marinaio Fantasma | Museo Marittimo | 150 ⭐ |
-| 4 — Caccia ai Tesori Nascosti | Mercatino Waterlooplein | 150 ⭐ |
-| 5 — Il Guardiano della Natura | Artis Zoo | 250 ⭐ |
-| 6 — Missione Finale: I Canali Segreti | Giro in barca | 200 ⭐ |
-
-**Stelle totali collezionabili: 1050 ⭐**
+| Servizio          | Note                                                        |
+|-------------------|------------------------------------------------------------|
+| **GitHub Pages**  | Già configurato qui, nessun servizio esterno. Predefinito. |
+| Cloudflare Pages  | Build cloud, CDN veloce, anteprime per branch. `VITE_BASE=/`. |
+| Netlify           | Deploy da Git o drag-and-drop della cartella `dist/`.       |
+| Vercel            | Simile a Netlify.                                           |
 
 ---
 
-## Personalizzare
+## 💡 Idee per il futuro
 
-Il file `index.html` è leggibile e modificabile con qualsiasi editor di testo
-(VS Code, Notepad++, TextEdit, ecc.).
-
-- **Missioni:** cerca `const MISSIONS = [` nel file JS
-- **Colori:** cerca `/* === TOKENS === */` nella sezione CSS
-- **Mappa SVG:** cerca `<svg id="map"` nel body HTML
-
----
-
-*Buon viaggio ad Amsterdam! 🌷*
+- Coriandoli + suono al completamento di una missione (rispettando `prefers-reduced-motion`).
+- "Taccuino": nota o disegno per ogni missione.
+- Card dei risultati condivisibile (immagine) e link con codice progressi.
+- Itinerario che evidenzia automaticamente "oggi" in base alla data del viaggio.
+- Sezione "adulti / cosa fare in città" (lo schema JSON è già estendibile).
+- Traduzione inglese + selettore lingua nell'interfaccia.

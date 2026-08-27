@@ -1,0 +1,82 @@
+@use 'mixins' as *;
+
+/* ── HERO ───────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  background: radial-gradient(ellipse at 50% 0%, rgba(15, 197, 189, 0.08) 0%, transparent 65%);
+  border-bottom: 1px solid var(--border);
+}
+
+.compass-wrap {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.compass-outer {
+  animation: spin 25s linear infinite;
+  transform-origin: 40px 40px;
+}
+
+.compass-needle {
+  animation: needle-rock 4s ease-in-out infinite;
+  transform-origin: 40px 40px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes needle-rock {
+  0%, 100% { transform: rotate(-6deg); }
+  50%      { transform: rotate(6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compass-outer,
+  .compass-needle {
+    animation: none;
+  }
+}
+
+.hero h1 {
+  font-family: $font-display;
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  color: var(--gold);
+  text-shadow: 0 0 40px rgba(245, 170, 26, 0.35);
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+
+.hero .tagline {
+  font-size: 1.05rem;
+  color: var(--dim);
+  margin-top: 0.4rem;
+}
+
+.star-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  padding: 0.55rem 1.4rem;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: border-color 0.4s, box-shadow 0.4s;
+
+  &.done {
+    border-color: var(--green);
+    box-shadow: 0 0 18px rgba(15, 191, 136, 0.25);
+  }
+}
+
+#star-count {
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  font-size: 1.05rem;
+
+  &.done { color: var(--green); }
+}

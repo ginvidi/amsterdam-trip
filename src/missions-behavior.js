@@ -13,8 +13,12 @@ export function initMissions(content) {
   const starMax = document.getElementById('star-max');
   const starBar = document.getElementById('star-bar');
 
-  // Totale stelle disponibili = somma dei data-stars presenti nel DOM.
-  starMax.textContent = cards.reduce((sum, c) => sum + Number(c.dataset.stars || 0), 0);
+  // Totale stelle disponibili = somma dei data-stars delle sole missioni
+  // obbligatorie. Le facoltative sono bonus: completandole si può superare
+  // il totale, ma non lo gonfiano.
+  starMax.textContent = cards
+    .filter((c) => !c.classList.contains('optional'))
+    .reduce((sum, c) => sum + Number(c.dataset.stars || 0), 0);
 
   const idOf = (card) => card.dataset.mission;
 

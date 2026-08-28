@@ -54,7 +54,8 @@
       { "id": 6, "x": 415, "y": 57,  "color": "#E85C5C", "filled": true,  "label": "⚓ Marittimo",     "labelPos": "below" },
       { "id": 7, "x": 258, "y": 152, "color": "#0FBF88", "filled": true,  "label": "🌅 Canali",        "labelPos": "below" },
       { "id": 8, "x": 468, "y": 178, "color": "#8B6FEF", "filled": true,  "label": "🦁 Artis",         "labelPos": "below" },
-      { "id": 9, "x": 400, "y": 282, "color": "#4EA8DE", "filled": false, "label": "💬 Lingua",        "labelPos": "above" }
+      { "id": 9, "x": 400, "y": 282, "color": "#4EA8DE", "filled": false, "label": "💬 Lingua",        "labelPos": "above" },
+      { "id": 10, "x": 190, "y": 300, "color": "#F5AA1A", "filled": false, "label": "🧇 Cibo",         "labelPos": "above" }
     ]
   },
   "days": [
@@ -270,6 +271,31 @@
         ]
       },
       "bonus": "✨ Sfida bonus: usa almeno una di queste parole con una persona vera oggi. Se ti risponde in olandese... +1 stella immaginaria!"
+    },
+    {
+      "id": 10,
+      "day": "always",
+      "optional": true,
+      "stars": 60,
+      "icon": "🧇",
+      "iconBg": "rgba(245,170,26,.14)",
+      "color": "#F5AA1A",
+      "title": "L'Assaggiatore Coraggioso",
+      "location": "📍 Ovunque — mercati, chioschi, panetterie, ristoranti",
+      "description": "Missione facoltativa: ogni Paese ha i suoi sapori segreti! Prova questi cibi tipici olandesi durante la vacanza e spunta ogni casella quando li hai assaggiati davvero — anche solo un morso conta.",
+      "game": {
+        "title": "🎮 Il tuo gioco — Assaggia l'Olanda",
+        "foods": [
+          { "emoji": "🧇", "nl": "Stroopwafel", "it": "due cialde sottili con sciroppo di caramello nel mezzo" },
+          { "emoji": "🍫", "nl": "Hagelslag", "it": "granella di cioccolato sul pane imburrato, a colazione" },
+          { "emoji": "🧆", "nl": "Bitterballen", "it": "polpettine fritte, croccanti fuori e cremose dentro, con la senape" },
+          { "emoji": "🍟", "nl": "Patat met mayo", "it": "patatine fritte spesse con tanta maionese" },
+          { "emoji": "🥞", "nl": "Poffertjes", "it": "mini frittelle gonfie con burro e zucchero a velo" },
+          { "emoji": "🧀", "nl": "Oude kaas", "it": "formaggio olandese stagionato, da assaggiare a cubetti al mercato" },
+          { "emoji": "🐟", "nl": "Haring", "it": "aringa cruda con cipolla e cetriolini — la sfida più coraggiosa!" }
+        ]
+      },
+      "bonus": "✨ Sfida bonus: assaggia qualcosa che non avevi mai provato prima e dagli un voto da 1 a 10. Qual è il tuo nuovo preferito?"
     }
   ],
   "itinerary": [

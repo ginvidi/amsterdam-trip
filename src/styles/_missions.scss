@@ -320,6 +320,32 @@
   .phrase-audio.speaking { animation: none; }
 }
 
+/* ── MISSIONE CIBO: cibi tipici da assaggiare ──────────────── */
+.game-food {
+  .game-text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.1rem 0.4rem;
+  }
+}
+
+.food-emoji {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.food-nl {
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.food-it {
+  flex-basis: 100%;
+  font-size: 0.78rem;
+  color: var(--dim);
+}
+
 .mbonus {
   font-size: 0.82rem;
   color: var(--teal);

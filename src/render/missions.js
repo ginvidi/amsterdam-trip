@@ -1,9 +1,9 @@
 import { e, fmt } from './dom.js';
 
 function gameItem(item, ui) {
-  // Frase da imparare (missione lingua): italiano → olandese + pronuncia + audio.
-  if (item && typeof item === 'object') {
-    const say = item.say ? `<span class="phrase-say">“${e(item.say)}”</span>` : '';
+  if (item && typeof item === 'object' && item.say) {
+    // Frase da imparare (missione lingua): italiano → olandese + pronuncia + audio.
+    const say = `<span class="phrase-say">“${e(item.say)}”</span>`;
     return `
     <li class="game-item game-phrase">
       <label>
@@ -18,6 +18,23 @@ function gameItem(item, ui) {
               aria-label="${e(fmt(ui.audioLabel, { word: item.nl }))}">🔊</button>
     </li>`;
   }
+  if (item && typeof item === 'object') {
+    // Cibo tipico da assaggiare (missione cibo): emoji + nome olandese + cos'è.
+    const emoji = item.emoji
+      ? `<span class="food-emoji" aria-hidden="true">${e(item.emoji)}</span>`
+      : '';
+    return `
+    <li class="game-item game-food">
+      <label>
+        <input type="checkbox" class="game-check">
+        <span class="game-text">
+          ${emoji}
+          <span class="food-nl" lang="nl">${e(item.nl)}</span>
+          <span class="food-it">${e(item.it)}</span>
+        </span>
+      </label>
+    </li>`;
+  }
   return `
     <li class="game-item">
       <label>
@@ -29,7 +46,7 @@ function gameItem(item, ui) {
 
 function missionCard(mission, ui) {
   const { id, optional, stars, icon, iconBg, color, title, location, description, game, bonus } = mission;
-  const items = game?.phrases ?? game?.items ?? [];
+  const items = game?.phrases ?? game?.foods ?? game?.items ?? [];
   return `
     <article class="mcard${optional ? ' optional' : ''}" data-mission="${id}" data-stars="${stars}">
       <h3 class="mcard-head-wrap">

@@ -6,6 +6,7 @@ $font-display: 'Fredoka', 'Fredoka One', 'Nunito', system-ui, sans-serif;
 
 // Colore accento per giorno: usato da missioni e itinerario con un @each.
 $day-colors: (
+  'always': var(--pink),
   'd0': var(--gold),
   'd1': var(--teal),
   'd2': var(--purple),

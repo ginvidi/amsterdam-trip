@@ -189,5 +189,47 @@ export function initMissions(content) {
     });
   });
 
+  initPhraseAudio();
+
   recalcTotals();
+}
+
+/* Missione "Le Parole Magiche in Olandese": pronuncia le frasi con la
+   Web Speech API (voce nl-NL). Se il browser non la supporta, i pulsanti
+   🔊 spariscono e resta comunque il testo con la pronuncia scritta. */
+function initPhraseAudio() {
+  const buttons = Array.from(document.querySelectorAll('.phrase-audio'));
+  if (!buttons.length) return;
+
+  const synth = window.speechSynthesis;
+  if (!synth || typeof window.SpeechSynthesisUtterance === 'undefined') {
+    buttons.forEach((btn) => {
+      btn.hidden = true;
+    });
+    return;
+  }
+
+  const dutchVoice = () =>
+    synth.getVoices().find((v) => (v.lang || '').toLowerCase().startsWith('nl')) || null;
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const text = btn.dataset.say;
+      if (!text) return;
+      synth.cancel();
+
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = btn.dataset.lang || 'nl-NL';
+      utter.rate = 0.85;
+      const voice = dutchVoice();
+      if (voice) utter.voice = voice;
+
+      const stop = () => btn.classList.remove('speaking');
+      utter.onend = stop;
+      utter.onerror = stop;
+
+      btn.classList.add('speaking');
+      synth.speak(utter);
+    });
+  });
 }

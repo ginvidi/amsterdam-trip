@@ -1,6 +1,6 @@
 # 🧭 Amsterdam Explorer
 
-Avventura interattiva per piccoli esploratori: 8 missioni ad Amsterdam, sistema di
+Avventura interattiva per piccoli esploratori: 9 missioni ad Amsterdam, sistema di
 stelle, mappa disegnata a mano, itinerario e consigli di viaggio.
 
 È una **web-app installabile** (PWA): si apre dal telefono come un'app normale,

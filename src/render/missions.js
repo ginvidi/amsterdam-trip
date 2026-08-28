@@ -1,18 +1,35 @@
 import { e, fmt } from './dom.js';
 
-function gameItem(text) {
+function gameItem(item, ui) {
+  // Frase da imparare (missione lingua): italiano → olandese + pronuncia + audio.
+  if (item && typeof item === 'object') {
+    const say = item.say ? `<span class="phrase-say">“${e(item.say)}”</span>` : '';
+    return `
+    <li class="game-item game-phrase">
+      <label>
+        <input type="checkbox" class="game-check">
+        <span class="game-text">
+          <span class="phrase-it">${e(item.it)}</span>
+          <span class="phrase-nl" lang="nl">${e(item.nl)}</span>
+          ${say}
+        </span>
+      </label>
+      <button type="button" class="phrase-audio" data-say="${e(item.nl)}" data-lang="nl-NL"
+              aria-label="${e(fmt(ui.audioLabel, { word: item.nl }))}">🔊</button>
+    </li>`;
+  }
   return `
     <li class="game-item">
       <label>
         <input type="checkbox" class="game-check">
-        <span class="game-text">${e(text)}</span>
+        <span class="game-text">${e(item)}</span>
       </label>
     </li>`;
 }
 
 function missionCard(mission, ui) {
   const { id, optional, stars, icon, iconBg, color, title, location, description, game, bonus } = mission;
-  const items = game?.items ?? [];
+  const items = game?.phrases ?? game?.items ?? [];
   return `
     <article class="mcard${optional ? ' optional' : ''}" data-mission="${id}" data-stars="${stars}">
       <h3 class="mcard-head-wrap">
@@ -35,7 +52,7 @@ function missionCard(mission, ui) {
             <span class="game-progress" aria-live="polite">${fmt(ui.gameProgress, { done: 0, total: items.length })}</span>
           </div>
           <ul class="game-list" role="list" aria-labelledby="game-title-${id}">
-            ${items.map(gameItem).join('')}
+            ${items.map((item) => gameItem(item, ui)).join('')}
           </ul>
         </div>
         ${bonus ? `<p class="mbonus">${e(bonus)}</p>` : ''}

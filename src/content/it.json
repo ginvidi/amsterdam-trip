@@ -48,19 +48,19 @@
     "pins": [
       { "id": 1, "x": 105, "y": 150, "color": "#F5AA1A", "filled": true,  "label": "🌉 Arrivo",       "labelPos": "below" },
       { "id": 2, "x": 45,  "y": 278, "color": "#4EA8DE", "filled": false, "label": null,                "labelPos": "below" },
-      { "id": 3, "x": 148, "y": 240, "color": "#FF6FA5", "filled": false, "label": "🌻 Van Gogh",      "labelPos": "below" },
       { "id": 4, "x": 60,  "y": 112, "color": "#0FC5BD", "filled": true,  "label": "🗺️ Noordermarkt", "labelPos": "above" },
       { "id": 5, "x": 330, "y": 198, "color": "#FFD166", "filled": true,  "label": "💎 Waterlooplein", "labelPos": "below" },
-      { "id": 6, "x": 415, "y": 57,  "color": "#E85C5C", "filled": true,  "label": "⚓ Marittimo",     "labelPos": "below" },
       { "id": 7, "x": 258, "y": 152, "color": "#0FBF88", "filled": true,  "label": "🌅 Canali",        "labelPos": "below" },
       { "id": 8, "x": 468, "y": 178, "color": "#8B6FEF", "filled": true,  "label": "🦁 Artis",         "labelPos": "below" },
-      { "id": 9, "x": 400, "y": 282, "color": "#4EA8DE", "filled": false, "label": "💬 Lingua",        "labelPos": "above" }
+      { "id": 9, "x": 400, "y": 282, "color": "#4EA8DE", "filled": false, "label": "💬 Lingua",        "labelPos": "above" },
+      { "id": 10, "x": 190, "y": 300, "color": "#F5AA1A", "filled": false, "label": "🧇 Cibo",         "labelPos": "above" },
+      { "id": 11, "x": 188, "y": 206, "color": "#A24DFF", "filled": true,  "label": "🎈 Moco",         "labelPos": "above" }
     ]
   },
   "days": [
     { "id": "always", "label": "🎒 Durante Tutta la Vacanza" },
     { "id": "d0", "label": "🌉 Venerdì sera — Il Grande Arrivo" },
-    { "id": "d1", "label": "🚲 Sabato — Jordaan, Arte & Mare" },
+    { "id": "d1", "label": "🎨 Sabato — Arte, Mercati & Canali" },
     { "id": "d2", "label": "🦁 Domenica — Animali & Tesori" }
   ],
   "missions": [
@@ -87,6 +87,31 @@
       }
     },
     {
+      "id": 11,
+      "day": "d1",
+      "optional": false,
+      "stars": 110,
+      "icon": "🎈",
+      "iconBg": "rgba(162,77,255,.14)",
+      "color": "#A24DFF",
+      "title": "La Caccia all'Arte Ribelle",
+      "location": "📍 Moco Museum · Honthorststraat 20 (Museumplein)",
+      "description": "Il Moco è un museo piccolo e pieno di sorprese, sul Museumplein. Qui l'arte è ribelle e coloratissima: Banksy che disegna di nascosto sui muri, stanze di specchi che sembrano infinite, fiori giganti che sorridono e figure che ballano. Chiude piuttosto tardi, quindi c'è tutto il tempo per godersela con calma nel pomeriggio.",
+      "game": {
+        "title": "🎮 Il tuo gioco — Caccia all'Arte Ribelle",
+        "items": [
+          "La bambina che lascia volare via il palloncino rosso a forma di cuore (Banksy) 🎈",
+          "Una scimmia dipinta da Banksy 🐒",
+          "La stanza degli specchi all'infinito di Yayoi Kusama — prova a contare i pois! 🔴",
+          "Una zuppa in scatola gigante o una Marilyn di Andy Warhol 🥫",
+          "Le figure con il contorno nero che ballano di Keith Haring 💃",
+          "Un fiore colorato che sorride di Takashi Murakami 🌈",
+          "Una corona a tre punte disegnata da Basquiat 👑"
+        ]
+      },
+      "bonus": "✨ Sfida bonus: l'arte di strada nasconde quasi sempre un messaggio segreto. Scegli l'opera che ti incuriosisce di più e prova a indovinare cosa voleva dirci l'artista."
+    },
+    {
       "id": 2,
       "day": "d1",
       "optional": true,
@@ -96,7 +121,7 @@
       "color": "#4EA8DE",
       "title": "Il Cacciatore di Animali Selvatici",
       "location": "📍 Vondelpark · accanto al Museumplein",
-      "description": "Missione facoltativa: il Vondelpark è il parco più bello di Amsterdam, proprio accanto al museo — cigni, scoiattoli, anatre e pappagalli verdi selvatici vivono qui in libertà!",
+      "description": "Missione facoltativa: il Vondelpark è attaccato al Museumplein — cigni, scoiattoli, anatre e pappagalli verdi selvatici vivono qui in libertà! Una pausa verde al mattino, prima di pranzo e del Moco.",
       "game": {
         "title": "🎮 Il tuo gioco — Caccia agli Animali Selvatici",
         "items": [
@@ -110,29 +135,6 @@
       "bonus": "✨ Bonus: disegna il tuo animale preferito del parco sul taccuino delle avventure!"
     },
     {
-      "id": 3,
-      "day": "d1",
-      "optional": true,
-      "stars": 120,
-      "icon": "🌻",
-      "iconBg": "rgba(255,111,165,.14)",
-      "color": "#FF6FA5",
-      "title": "Il Pittore Misterioso",
-      "location": "📍 Van Gogh Museum · Museumplein 6",
-      "description": "Missione facoltativa: Van Gogh era un artista che dipingeva con colori esplosivi e pennellate vorticose come onde! Se la saltate, andate direttamente al Jordaan.",
-      "game": {
-        "title": "🎮 Il tuo gioco — Trova il Quadro",
-        "items": [
-          "Un quadro con i girasoli 🌻",
-          "Il quadro con il cielo più agitato di tutti 🌌",
-          "Un autoritratto — Van Gogh si dipingeva spesso! 🖼️",
-          "Il quadro in cui usi meno di 3 colori 🎨",
-          "Qualcosa che Van Gogh ha dipinto e che si trova anche ad Amsterdam 🏙️"
-        ]
-      },
-      "bonus": "✨ Sfida bonus: disegna il tuo preferito su un foglio prima di uscire!"
-    },
-    {
       "id": 4,
       "day": "d1",
       "optional": false,
@@ -142,7 +144,7 @@
       "color": "#0FC5BD",
       "title": "Il Mercato dei Segreti",
       "location": "📍 Jordaan / Noordermarkt",
-      "description": "Il Jordaan è il quartiere più antico e misterioso di Amsterdam — cortili nascosti, mercati, ponti minuscoli. Gli hofjes sono cortili segreti dentro i palazzi: cerca le porte con targhe antiche e sbircia dentro, sembrano giardini magici! Ci si ferma qui anche per pranzo.",
+      "description": "Il Jordaan è il quartiere più antico e misterioso di Amsterdam — cortili nascosti, mercati, ponti minuscoli. Gli hofjes sono cortili segreti dentro i palazzi: cerca le porte con targhe antiche e sbircia dentro, sembrano giardini magici!",
       "game": {
         "title": "🎮 Il tuo gioco — Cacciatore di Hofjes e Mercato",
         "items": [
@@ -164,7 +166,7 @@
       "color": "#FFD166",
       "title": "Il Tesoro del Mercato",
       "location": "📍 Mercatino Waterlooplein",
-      "description": "Waterlooplein è il mercato delle pulci più famoso di Amsterdam — ci trovi di tutto, dal 1886! Apre da lunedì a sabato, quindi lo visitiamo oggi.",
+      "description": "Waterlooplein è il mercato delle pulci più famoso di Amsterdam — ci trovi di tutto, dal 1886! Aperto da lunedì a sabato (chiuso la domenica), è a 5 minuti dall'hotel: se fate acquisti potete lasciarli in camera prima di ripartire.",
       "game": {
         "title": "🎮 Il tuo gioco — Caccia al Tesoro Finale",
         "items": [
@@ -178,29 +180,6 @@
       "bonus": "✨ Sfida: con 5 euro, compra il souvenir più originale che riesci a trovare!"
     },
     {
-      "id": 6,
-      "day": "d1",
-      "optional": false,
-      "stars": 150,
-      "icon": "⚓",
-      "iconBg": "rgba(232,92,92,.14)",
-      "color": "#E85C5C",
-      "title": "La Nave dei Pirati Olandesi",
-      "location": "📍 Museo Marittimo (Het Scheepvaartmuseum) · Kattenburgerplein 1",
-      "description": "C'è una vera nave del 1700 ormeggiata fuori dal museo — la VOC Amsterdam, uguale a quelle che i marinai olandesi usavano per circumnavigare il mondo!",
-      "game": {
-        "title": "🎮 Il tuo gioco — Esplorazione della Nave",
-        "items": [
-          "Il timone (dove stava il capitano) 🎡",
-          "I cannoni — contali tutti! 💣",
-          "La corda più spessa che hai mai visto 🪢",
-          "Un posto dove dormivano i marinai (era scomodo?) 🛏️",
-          "La bussola o il sestante per navigare 🧭"
-        ]
-      },
-      "bonus": "✨ Sfida: stai fermo sul ponte con gli occhi chiusi e senti il vento — immagina di essere in mezzo all'oceano. Cosa sentiresti?"
-    },
-    {
       "id": 7,
       "day": "d1",
       "optional": false,
@@ -209,8 +188,8 @@
       "iconBg": "rgba(15,191,136,.14)",
       "color": "#0FBF88",
       "title": "I Canali al Tramonto",
-      "location": "📍 Giro in barca sui canali · partenza ~18:00",
-      "description": "Amsterdam ha 1.281 ponti — più di Venezia! Dal canale la città sembra completamente diversa.",
+      "location": "📍 Giro in barca sui canali · partenza ~18:15, imbarco vicino a Centraal",
+      "description": "Amsterdam ha 1.281 ponti — più di Venezia! Dal canale la città sembra completamente diversa. L'imbarco è a 5 minuti dall'hotel: la barca vi riporta accanto a casa per la cena.",
       "game": {
         "title": "🎮 Il tuo gioco — Record di Bordo",
         "items": [
@@ -270,6 +249,31 @@
         ]
       },
       "bonus": "✨ Sfida bonus: usa almeno una di queste parole con una persona vera oggi. Se ti risponde in olandese... +1 stella immaginaria!"
+    },
+    {
+      "id": 10,
+      "day": "always",
+      "optional": true,
+      "stars": 60,
+      "icon": "🧇",
+      "iconBg": "rgba(245,170,26,.14)",
+      "color": "#F5AA1A",
+      "title": "L'Assaggiatore Coraggioso",
+      "location": "📍 Ovunque — mercati, chioschi, panetterie, ristoranti",
+      "description": "Missione facoltativa: ogni Paese ha i suoi sapori segreti! Prova questi cibi tipici olandesi durante la vacanza e spunta ogni casella quando li hai assaggiati davvero — anche solo un morso conta.",
+      "game": {
+        "title": "🎮 Il tuo gioco — Assaggia l'Olanda",
+        "foods": [
+          { "emoji": "🧇", "nl": "Stroopwafel", "it": "due cialde sottili con sciroppo di caramello nel mezzo" },
+          { "emoji": "🍫", "nl": "Hagelslag", "it": "granella di cioccolato sul pane imburrato, a colazione" },
+          { "emoji": "🧆", "nl": "Bitterballen", "it": "polpettine fritte, croccanti fuori e cremose dentro, con la senape" },
+          { "emoji": "🍟", "nl": "Patat met mayo", "it": "patatine fritte spesse con tanta maionese" },
+          { "emoji": "🥞", "nl": "Poffertjes", "it": "mini frittelle gonfie con burro e zucchero a velo" },
+          { "emoji": "🧀", "nl": "Oude kaas", "it": "formaggio olandese stagionato, da assaggiare a cubetti al mercato" },
+          { "emoji": "🐟", "nl": "Haring", "it": "aringa cruda con cipolla e cetriolini — la sfida più coraggiosa!" }
+        ]
+      },
+      "bonus": "✨ Sfida bonus: assaggia qualcosa che non avevi mai provato prima e dagli un voto da 1 a 10. Qual è il tuo nuovo preferito?"
     }
   ],
   "itinerary": [
@@ -284,16 +288,17 @@
     },
     {
       "day": "d1",
-      "heading": "🚲 Sabato — Jordaan, Arte & Mare",
+      "heading": "🎨 Sabato — Arte, Mercati & Canali",
       "stops": [
-        { "time": "8:30", "name": "🍫 Hagelslag a colazione", "desc": "La tradizione olandese più amata dai bambini: sprinkles di cioccolato sul pane imburrato!" },
-        { "time": "9:30", "name": "🦆 Missione 2 (facoltativa) — Vondelpark", "desc": "Prima passeggiata mattutina nel parco più bello di Amsterdam: cigni, scoiattoli e pappagalli verdi selvatici." },
-        { "time": "10:30", "name": "🌻 Missione 3 (facoltativa) — Van Gogh Museum", "desc": "A due passi dal parco: girasoli, cieli vorticosi e autoritratti. Se saltate queste due tappe, partite direttamente per il Jordaan.", "tip": "💡 Museumplein 6 · Ingresso gratis sotto i 18 anni · Prenotare online, orario fisso" },
-        { "time": "12:15", "name": "🗺️ Missione 4 — Jordaan & Noordermarkt", "desc": "Cortili segreti (hofjes), ponticelli e mercato: il quartiere più antico e misterioso di Amsterdam. Pranzo in zona (o poco prima, prendendo qualcosa al volo).", "tip": "💡 Il Noordermarkt il sabato è mercato bio e delle pulci · Prova i bitterballen come pranzo veloce" },
-        { "time": "14:30", "name": "💎 Missione 5 — Mercatino di Waterlooplein", "desc": "Il mercato delle pulci più famoso di Amsterdam, dal 1886: caccia al tesoro finale con 5 euro da spendere!", "tip": "💡 Chiuso la domenica — per questo lo visitiamo di sabato" },
-        { "time": "16:00", "name": "⚓ Missione 6 — Museo Marittimo", "desc": "A bordo della VOC Amsterdam, replica di una nave del '700 ormeggiata fuori dal museo.", "tip": "💡 Het Scheepvaartmuseum · Kattenburgerplein 1" },
-        { "time": "18:00", "name": "🌅 Missione 7 — I Canali al Tramonto", "desc": "Giro in barca sui canali con la luce della sera: la città sembra completamente diversa dall'acqua.", "tip": "💡 Blue Boat Company o Canal Bus · Partenza vicino alla Stazione Centrale" },
-        { "time": "19:30", "name": "🍽️ Cena in centro", "desc": "Dopo una giornata piena, una cena tranquilla per festeggiare le stelle guadagnate." }
+        { "time": "8:00", "name": "🍫 Colazione in hotel (Nieuwmarkt)", "desc": "Oggi si comincia vicino a casa e si finisce lontano: Waterlooplein è a due passi, poi si arriva pian piano fino al Museumplein, dove il Moco vi aspetta fino a tardi. Hagelslag sul pane per partire carichi.", "tip": "💡 Cinque minuti a piedi fino alla prima tappa" },
+        { "time": "9:30", "name": "💎 Missione 5 — Mercatino di Waterlooplein", "desc": "A 5 minuti a piedi dall'hotel, appena apre: il mercato delle pulci più famoso di Amsterdam, dal 1886. Caccia al tesoro con 5 euro.", "tip": "💡 Aperto lun–sab dalle 9:30 alle 18:00 · Chiuso la domenica" },
+        { "time": "11:00", "name": "🗺️ Missione 4 — Jordaan & Noordermarkt", "desc": "Spostamento verso il Jordaan (~15-20 minuti a piedi o con tram/bus): hofjes segreti, ponticelli, le bancarelle del mercato bio del sabato e un gelato.", "tip": "💡 Il mercato bio del Noordermarkt è aperto dalle 9:00 alle 16:00" },
+        { "time": "13:00", "name": "🥪 Pranzo nel Jordaan", "desc": "Una lunchroom o caffetteria vicino a Noordermarkt/Westerstraat, prima di ripartire verso il Museumplein: qui le opzioni carine non mancano.", "tip": "💡 Meglio mangiare qui che ai chioschi del Museumplein più tardi" },
+        { "time": "14:00", "name": "🦆 Missione 2 (facoltativa) — Vondelpark", "desc": "Tram 5 verso il Museumplein (~15-20 minuti porta a porta): un'ora di pausa verde tra cigni, scoiattoli e pappagalli, senza nessuna fretta. Ottimo anche per uno spuntino da chiosco (vale per la missione Cibo!).", "tip": "💡 Sempre aperto · Ingresso libero" },
+        { "time": "15:30", "name": "🎈 Missione 11 — Moco Museum", "desc": "A due passi dal parco: il Moco è piccolo e pieno di sorprese — Banksy, stanze di specchi infiniti e fiori giganti. Nel tardo pomeriggio le sale sono più tranquille e non c'è nessun orario da rincorrere.", "tip": "💡 Honthorststraat 20 · Aperto fino alle 20:00 · Prenotare online con orario" },
+        { "time": "17:00", "name": "🏨 Rientro verso l'hotel", "desc": "Tram 2 verso Centraal (~17-20 minuti): tempo per una breve pausa prima della crociera serale." },
+        { "time": "18:15", "name": "🌅 Missione 7 — I Canali al Tramonto", "desc": "Imbarco vicino alla Stazione Centrale, a 5 minuti dall'hotel: la città dall'acqua con la luce della sera.", "tip": "💡 Lovers o Blue Boat · Partenza vicino a Centraal" },
+        { "time": "19:30", "name": "🍽️ Cena in Nieuwmarkt", "desc": "La barca vi lascia accanto all'hotel: cena tranquilla in piazza Nieuwmarkt per festeggiare le stelle della giornata." }
       ]
     },
     {
@@ -308,7 +313,7 @@
   ],
   "tips": [
     { "icon": "🚲", "title": "Attenzione alle bici!", "text": "Amsterdam ha corsie ciclabili dappertutto con ciclisti velocissimi. Tieni sempre la mano di tuo figlio sul marciapiede." },
-    { "icon": "🎫", "title": "Prenota online in anticipo", "text": "Van Gogh Museum, Museo Marittimo e Artis si esauriscono. Prenota i biglietti qualche giorno prima per evitare code." },
+    { "icon": "🎫", "title": "Prenota online in anticipo", "text": "Moco Museum, Museo Marittimo e Artis si esauriscono. Prenota i biglietti qualche giorno prima per evitare code." },
     { "icon": "🌂", "title": "Settembre = vento e pioggia", "text": "L'Olanda a fine settembre è fresca (12-18°C). Porta un impermeabile e scarpe impermeabili." },
     { "icon": "🚌", "title": "App GVB per i trasporti", "text": "Scarica l'app GVB Amsterdam. Bambini sotto 4 anni viaggiano gratis, 4-11 anni tariffa ridotta." },
     { "icon": "🥐", "title": "Cibo da provare con i bimbi", "text": "Stroopwafel, hagelslag, bitterballen, patatine fritte con maionese, mini pannekoeken." },

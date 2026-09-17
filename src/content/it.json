@@ -48,7 +48,6 @@
     "pins": [
       { "id": 1, "x": 105, "y": 150, "color": "#F5AA1A", "filled": true,  "label": "🌉 Arrivo",       "labelPos": "below" },
       { "id": 2, "x": 45,  "y": 278, "color": "#4EA8DE", "filled": false, "label": null,                "labelPos": "below" },
-      { "id": 3, "x": 148, "y": 240, "color": "#FF6FA5", "filled": false, "label": "🌻 Van Gogh",      "labelPos": "below" },
       { "id": 4, "x": 60,  "y": 112, "color": "#0FC5BD", "filled": true,  "label": "🗺️ Noordermarkt", "labelPos": "above" },
       { "id": 5, "x": 330, "y": 198, "color": "#FFD166", "filled": true,  "label": "💎 Waterlooplein", "labelPos": "below" },
       { "id": 7, "x": 258, "y": 152, "color": "#0FBF88", "filled": true,  "label": "🌅 Canali",        "labelPos": "below" },
@@ -97,7 +96,7 @@
       "color": "#A24DFF",
       "title": "La Caccia all'Arte Ribelle",
       "location": "📍 Moco Museum · Honthorststraat 20 (Museumplein)",
-      "description": "Il Moco è un museo piccolo e pieno di sorprese, sul Museumplein a due passi dal Van Gogh. Qui l'arte è ribelle e coloratissima: Banksy che disegna di nascosto sui muri, stanze di specchi che sembrano infinite, fiori giganti che sorridono e figure che ballano. È la prima tappa del sabato: apre alle 9:00 e presto le sale sono tutte per voi.",
+      "description": "Il Moco è un museo piccolo e pieno di sorprese, sul Museumplein. Qui l'arte è ribelle e coloratissima: Banksy che disegna di nascosto sui muri, stanze di specchi che sembrano infinite, fiori giganti che sorridono e figure che ballano. Chiude piuttosto tardi, quindi c'è tutto il tempo per godersela con calma nel pomeriggio.",
       "game": {
         "title": "🎮 Il tuo gioco — Caccia all'Arte Ribelle",
         "items": [
@@ -122,7 +121,7 @@
       "color": "#4EA8DE",
       "title": "Il Cacciatore di Animali Selvatici",
       "location": "📍 Vondelpark · accanto al Museumplein",
-      "description": "Missione facoltativa: il Vondelpark è attaccato al Museumplein — cigni, scoiattoli, anatre e pappagalli verdi selvatici vivono qui in libertà! Una pausa verde dopo il Moco, prima di pranzo e del Van Gogh.",
+      "description": "Missione facoltativa: il Vondelpark è attaccato al Museumplein — cigni, scoiattoli, anatre e pappagalli verdi selvatici vivono qui in libertà! Una pausa verde al mattino, prima di pranzo e del Moco.",
       "game": {
         "title": "🎮 Il tuo gioco — Caccia agli Animali Selvatici",
         "items": [
@@ -134,29 +133,6 @@
         ]
       },
       "bonus": "✨ Bonus: disegna il tuo animale preferito del parco sul taccuino delle avventure!"
-    },
-    {
-      "id": 3,
-      "day": "d1",
-      "optional": true,
-      "stars": 120,
-      "icon": "🌻",
-      "iconBg": "rgba(255,111,165,.14)",
-      "color": "#FF6FA5",
-      "title": "Il Pittore Misterioso",
-      "location": "📍 Van Gogh Museum · Museumplein 6",
-      "description": "Missione facoltativa: Van Gogh dipingeva con colori esplosivi e pennellate vorticose come onde! Per il 19 settembre non ci sono biglietti prima delle 12:00, quindi è la tappa del primo pomeriggio — si torna sul Museumplein dopo pranzo, a due passi dal Moco.",
-      "game": {
-        "title": "🎮 Il tuo gioco — Trova il Quadro",
-        "items": [
-          "Un quadro con i girasoli 🌻",
-          "Il quadro con il cielo più agitato di tutti 🌌",
-          "Un autoritratto — Van Gogh si dipingeva spesso! 🖼️",
-          "Il quadro in cui usi meno di 3 colori 🎨",
-          "Qualcosa che Van Gogh ha dipinto e che si trova anche ad Amsterdam 🏙️"
-        ]
-      },
-      "bonus": "✨ Sfida bonus: disegna il tuo preferito su un foglio prima di uscire!"
     },
     {
       "id": 4,
@@ -314,14 +290,13 @@
       "day": "d1",
       "heading": "🎨 Sabato — Arte, Mercati & Canali",
       "stops": [
-        { "time": "8:00", "name": "🍫 Colazione in hotel (Nieuwmarkt)", "desc": "Oggi si gira in senso antiorario: prima il punto più lontano (Museumplein), poi si torna verso casa passando dal Jordaan e dai mercati. Hagelslag sul pane per partire carichi." },
-        { "time": "9:00", "name": "🎈 Missione 11 — Moco Museum", "desc": "Tram da Centraal/Nieuwmarkt al Museumplein (~15 min): il Moco apre alle 9:00 ed è piccolo, presto le sale sono tutte per voi. Banksy, stanze di specchi infiniti e fiori giganti.", "tip": "💡 Honthorststraat 20 · Apre alle 9:00 · Prenotare online con orario" },
-        { "time": "10:15", "name": "🦆 Missione 2 (facoltativa) — Vondelpark", "desc": "Il parco è attaccato al Museumplein: un'ora di pausa verde tra cigni, scoiattoli e pappagalli — c'è tempo, il Van Gogh è solo alle 12:00. Prendete uno spuntino a un chiosco (poffertjes o patat: valgono per la missione Cibo!).", "tip": "💡 Sempre aperto · Ingresso libero" },
-        { "time": "11:15", "name": "🥪 Pranzo al Museumplein", "desc": "Pranzo tra i due musei: caffè del Vondelpark, chioschi del Museumplein o un locale su Van Baerlestraat. Si resta nel raggio di 300 metri, nessuno spostamento.", "tip": "💡 Pranzo presto perché l'ingresso al Van Gogh è alle 12:00" },
-        { "time": "12:00", "name": "🌻 Missione 3 (facoltativa) — Van Gogh Museum", "desc": "Di nuovo sul Museumplein, 5 minuti a piedi: girasoli, cieli vorticosi e autoritratti. Il 19 settembre il primo biglietto disponibile è alle 12:00.", "tip": "💡 Museumplein 6 · Prenota lo slot delle 12:00 appena esce · Gratis sotto i 18 anni · Chiude alle 18:00" },
-        { "time": "14:00", "name": "🗺️ Missione 4 — Jordaan & Noordermarkt", "desc": "Tram 2 verso nord (~15 min): hofjes segreti, ponticelli, le ultime bancarelle del mercato del sabato e un gelato.", "tip": "💡 Il mercato bio del Noordermarkt chiude verso le 16:00, ma hofjes e negozietti restano" },
-        { "time": "16:00", "name": "💎 Missione 5 — Mercatino di Waterlooplein", "desc": "Tram 14 verso est (~12 min): il mercato delle pulci più famoso di Amsterdam, dal 1886. Caccia al tesoro con 5 euro.", "tip": "💡 Aperto lun–sab fino alle 18:00 · Chiuso la domenica · A 5 min dall'hotel" },
-        { "time": "17:00", "name": "🏨 Rientro in hotel e pausa", "desc": "Waterlooplein è a 5 minuti dall'hotel: un'oretta per riposare i piedi prima della sera." },
+        { "time": "8:00", "name": "🍫 Colazione in hotel (Nieuwmarkt)", "desc": "Oggi si comincia vicino a casa e si finisce lontano: Waterlooplein è a due passi, poi si arriva pian piano fino al Museumplein, dove il Moco vi aspetta fino a tardi. Hagelslag sul pane per partire carichi.", "tip": "💡 Cinque minuti a piedi fino alla prima tappa" },
+        { "time": "9:30", "name": "💎 Missione 5 — Mercatino di Waterlooplein", "desc": "A 5 minuti a piedi dall'hotel, appena apre: il mercato delle pulci più famoso di Amsterdam, dal 1886. Caccia al tesoro con 5 euro.", "tip": "💡 Aperto lun–sab dalle 9:30 alle 18:00 · Chiuso la domenica" },
+        { "time": "11:00", "name": "🗺️ Missione 4 — Jordaan & Noordermarkt", "desc": "Spostamento verso il Jordaan (~15-20 minuti a piedi o con tram/bus): hofjes segreti, ponticelli, le bancarelle del mercato bio del sabato e un gelato.", "tip": "💡 Il mercato bio del Noordermarkt è aperto dalle 9:00 alle 16:00" },
+        { "time": "13:00", "name": "🥪 Pranzo nel Jordaan", "desc": "Una lunchroom o caffetteria vicino a Noordermarkt/Westerstraat, prima di ripartire verso il Museumplein: qui le opzioni carine non mancano.", "tip": "💡 Meglio mangiare qui che ai chioschi del Museumplein più tardi" },
+        { "time": "14:00", "name": "🦆 Missione 2 (facoltativa) — Vondelpark", "desc": "Tram 5 verso il Museumplein (~15-20 minuti porta a porta): un'ora di pausa verde tra cigni, scoiattoli e pappagalli, senza nessuna fretta. Ottimo anche per uno spuntino da chiosco (vale per la missione Cibo!).", "tip": "💡 Sempre aperto · Ingresso libero" },
+        { "time": "15:30", "name": "🎈 Missione 11 — Moco Museum", "desc": "A due passi dal parco: il Moco è piccolo e pieno di sorprese — Banksy, stanze di specchi infiniti e fiori giganti. Nel tardo pomeriggio le sale sono più tranquille e non c'è nessun orario da rincorrere.", "tip": "💡 Honthorststraat 20 · Aperto fino alle 20:00 · Prenotare online con orario" },
+        { "time": "17:00", "name": "🏨 Rientro verso l'hotel", "desc": "Tram 2 verso Centraal (~17-20 minuti): tempo per una breve pausa prima della crociera serale." },
         { "time": "18:15", "name": "🌅 Missione 7 — I Canali al Tramonto", "desc": "Imbarco vicino alla Stazione Centrale, a 5 minuti dall'hotel: la città dall'acqua con la luce della sera.", "tip": "💡 Lovers o Blue Boat · Partenza vicino a Centraal" },
         { "time": "19:30", "name": "🍽️ Cena in Nieuwmarkt", "desc": "La barca vi lascia accanto all'hotel: cena tranquilla in piazza Nieuwmarkt per festeggiare le stelle della giornata." }
       ]
@@ -338,7 +313,7 @@
   ],
   "tips": [
     { "icon": "🚲", "title": "Attenzione alle bici!", "text": "Amsterdam ha corsie ciclabili dappertutto con ciclisti velocissimi. Tieni sempre la mano di tuo figlio sul marciapiede." },
-    { "icon": "🎫", "title": "Prenota online in anticipo", "text": "Van Gogh Museum, Museo Marittimo e Artis si esauriscono. Prenota i biglietti qualche giorno prima per evitare code." },
+    { "icon": "🎫", "title": "Prenota online in anticipo", "text": "Moco Museum, Museo Marittimo e Artis si esauriscono. Prenota i biglietti qualche giorno prima per evitare code." },
     { "icon": "🌂", "title": "Settembre = vento e pioggia", "text": "L'Olanda a fine settembre è fresca (12-18°C). Porta un impermeabile e scarpe impermeabili." },
     { "icon": "🚌", "title": "App GVB per i trasporti", "text": "Scarica l'app GVB Amsterdam. Bambini sotto 4 anni viaggiano gratis, 4-11 anni tariffa ridotta." },
     { "icon": "🥐", "title": "Cibo da provare con i bimbi", "text": "Stroopwafel, hagelslag, bitterballen, patatine fritte con maionese, mini pannekoeken." },
